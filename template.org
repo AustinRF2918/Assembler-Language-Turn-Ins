@@ -148,7 +148,50 @@
      0
 
 ** Code
-   (Copy and paste code into the document)
+   See added Visual Studio project.
+
+** Updated Algorithm
+*** Step 1.)
+    Allocate memory for various prompt titles.
+*** Step 2.)
+    Allocate memory for various numeric inputs.
+*** Step 3.)
+    Allocate memory for input and output strings.
+*** Step 4.)
+    Begin main program
+*** Step 5.)
+    Send input to prompt 1.
+*** Step 6.)
+    Convert string to double.
+*** Step 7.)
+    Copy the current EAX register (which input moves data into)
+    into our allocated number1 memory.
+*** Step 8.)
+    Send input to prompt 2.
+*** Step 9.)
+    Convert string to double.
+*** Step 9.)
+    Convert string to double.
+*** Step 10.)
+    Copy the current EAX regester (which input moves data into)
+    into our allocated number2 memory.
+*** Step 11.)
+    Send input to prompt 3.
+*** Step 12.)
+    Convert string to double.
+*** Step 13.)
+    Copy the current EAX regester (which input moves data into)
+    into our allocated number3 memory.
+*** Step 14.)
+    Move number one into accumulator register.
+*** Step 15.)
+    Perform add onto accumulator from number two.
+*** Step 16.)
+    Perform add onto accumulator from number three.
+*** Step 17.)
+    Cast to ASCII and send to output function.
+*** Step 18.)
+    Send exit code to operating system.
 
 ** Test Plan Version 3
 *** Test Case 1
@@ -185,7 +228,6 @@
 **** Pass/Fail
      Pass
 
-
 *** Test Case 3
 **** Test Strategy
      *A.)*
@@ -205,7 +247,7 @@
      Pass
 
 ** Screenshots
-    Copy and paste second screenshot folder.
+   See zipped folder in submitted document.
 
 ** Error Log
    None
