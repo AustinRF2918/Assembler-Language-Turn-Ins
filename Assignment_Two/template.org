@@ -51,8 +51,59 @@ Fahrenheit To Celcius Converter
 | Invalid Data  |           5 | User enters generic string  decimal | Hello | Show Error |
 
 * Code
-  See Submission
-  
+  #+begin_src asm
+    .586
+    .MODEL FLAT
+
+    INCLUDE io-asm.h            ; header file for input/output
+
+    .STACK 4096
+
+    .DATA
+    number1 DWORD   ?
+    rounded DWORD   ?
+    lhs			SDWORD	5
+    rhs			SDWORD	9
+    user_value	SDWORD	?
+    f_const REAL4	?
+    l_const	REAL4	?
+    r_const	REAL4	?
+    u_const REAL4	?
+    prompt1 BYTE    "Enter the the temperature in fahrenheit.", 0
+    string  BYTE    40 DUP (?)
+    jum		BYTE	40 DUP (?)
+    resultLbl BYTE  "The value in celcius is..", 0
+    sum     BYTE    11 DUP (?), 0
+
+    .CODE
+    _MainProc PROC
+            input   prompt1, string, 40      ; read ASCII characters
+            atod    string          ; convert to integer
+		    sub		eax, 32
+		    mov		user_value, eax
+		    fild	user_value
+		    fstp	r_const			; store it.
+               
+		    fild	lhs				; Convert lhs to floating point.
+		    fidiv	rhs				; Divide data in register by RHS (9)
+		    fstp	l_const			; Store it.
+
+		    fld		l_const			;
+		    fmul	r_const			;
+		    fstp	f_const			; Store it.
+
+		    fld		f_const
+		    fisttp	rounded
+		    dtoa    sum, rounded	        ; convert to ASCII characters
+            output  resultLbl, sum          ; output label and sum
+
+            mov     eax, 0  ; exit with return code 0
+            ret
+     _MainProc ENDP
+    END                             ; end of source code
+
+
+  #+end_src
 * Updated Algorithm
 
 * Test Plan: Version 3
