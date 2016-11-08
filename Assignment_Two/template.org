@@ -6,26 +6,26 @@ Fahrenheit To Celcius Converter
   
 * Requirements
 ** Assumptions
-*** The user will be prompted with a window to enter some decimal number representinga temperature in fahrenheit.
-*** The program will sanitize data and convert seamlessly between string and numeric representation of data.
-*** The program will then display the resulting celcius number.
+   + The user will be prompted with a window to enter some decimal number representinga temperature in fahrenheit.
+   + The program will sanitize data and convert seamlessly between string and numeric representation of data.
+   + The program will then display the resulting celcius number.
 
 ** Specification
-*** The prorams prompt will take an arbitrary length string parameter.
-*** Said string parameter will then be converted to a 32 bit float in memory.
-*** Non-numerics will display an error (automatically implemented by framework).
-*** When result is given, the user will be able to press "OK" to exit the program.
+   + The prorams prompt will take an arbitrary length string parameter.
+   + Said string parameter will then be converted to a 32 bit float in memory.
+   + Non-numerics will display an error (automatically implemented by framework).
+   + When result is given, the user will be able to press "OK" to exit the program.
     
 * Decomposition Diagram
 ** Input
-*** User inputs representable numeric.
+   + User inputs representable numeric.
 ** Process
-*** Convert string based numeric to float
-*** Place into conversion function
-*** Requires stored variables in executable
-*** Convert back to string.
+   + Convert string based numeric to float
+   + Place into conversion function
+   + Requires stored variables in executable
+   + Convert back to string.
 ** Output
-*** Print out final conversion.
+   + Print out final conversion.
 
 * Test Strategy
   Valid Data / Invalid Data scheme.
@@ -53,9 +53,7 @@ Fahrenheit To Celcius Converter
 * Code
   See Submission
   
-
 * Updated Algorithm
-  
 
 * Test Plan: Version 3
 | Test Strategy | Test Number | Description                         | Input |     Output |      Actual | Passing |
