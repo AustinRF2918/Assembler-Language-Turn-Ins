@@ -40,6 +40,24 @@ Fahrenheit To Celcius Converter
 | Invalid Data  |           5 | User enters generic string  decimal |
 
 * Initial Algorithm
+  + Allocate DWORD for final result, 4 REAL4s for manipulation of floats
+  + Allocate strings for message display to screen.
+  + Call framework input with above strings.
+  + Sub filled EAX by 32, move into user value.
+  + Store value in memory.
+
+  + Take lhs, load it in as numerator for floating point division.
+  + Take rhs, use fidiv to divide floating point numerics.
+  + Store the result into a value.
+
+  + Take resultant values between the two blocks above
+  + Perform multiplication.
+  + Store the value.
+
+  + Round down value using fistpp
+  + Convert resultant to string with dtoa.
+
+  + Display data to user.
 
 * Test Plan: Version 2
 | Test Strategy | Test Number | Description                         | Input |     Output |
@@ -105,6 +123,24 @@ Fahrenheit To Celcius Converter
 
   #+end_src
 * Updated Algorithm
+  + Allocate DWORD for final result, 4 REAL4s for manipulation of floats
+  + Allocate strings for message display to screen.
+  + Call framework input with above strings.
+  + Sub filled EAX by 32, move into user value.
+  + Store value in memory.
+
+  + Take lhs, load it in as numerator for floating point division.
+  + Take rhs, use fidiv to divide floating point numerics.
+  + Store the result into a value.
+
+  + Take resultant values between the two blocks above
+  + Perform multiplication.
+  + Store the value.
+
+  + Round down value using fistpp
+  + Convert resultant to string with dtoa.
+
+  + Display data to user.
 
 * Test Plan: Version 3
 | Test Strategy | Test Number | Description                         | Input |     Output |      Actual | Passing |
