@@ -1,0 +1,256 @@
+* Turn In Template
+** Problem Statement
+   A simple application to display the capabilities of
+   assembler is required: This application allows a user
+   to enter numbers into a Windows GUI interface and
+   sums up the (3) numbers.
+
+** Requirements
+*** Assumptions
+    Our application will use Windows API calls to create
+    a GUI.
+
+    The current application is functioning: We simply need
+    to extend the functionality to take a third number.
+
+*** Specifications
+     Our application will only run on the
+     Windows operating system.
+
+     A prebuilt API for building forms for this application
+     will be used.
+
+*** Decomposition  Diagrams
+**** Main
+***** Input
+****** Input API Call
+***** Process
+****** Mov -> Add Assembly Commands
+***** Output
+****** Output API Call.
+
+** Test Strategy
+   A.) Because this is an application that accepts integer input as well.
+   as floating point: However, because floating point is casted
+   downwards, it functions roughly the same: I will use a permutation
+   of positive, negative, and both sets.
+
+** Test Plan Version 1
+*** Test Case 1
+**** Test Strategy
+     *A.)*
+**** Test Number
+     *1.)*
+**** Description
+     We will input three positive numbers and see if we get
+     proper output.
+*** Test Case 2
+**** Test Strategy
+     *A.)*
+**** Test Number
+     *2.)*
+**** Description
+     We will input three negative numbers and see if we get
+     proper output.
+
+*** Test Case 3
+**** Test Strategy
+     *A.)*
+**** Test Number
+     *2.)*
+**** Description
+     We will insert one large positive number, one large
+     negative number, and one zero number and see if we get
+     proper output.
+
+** Initial Algorithm
+*** Step 1.)
+    Allocate memory for various prompt titles.
+*** Step 2.)
+    Allocate memory for various numeric inputs.
+*** Step 3.)
+    Allocate memory for input and output strings.
+*** Step 4.)
+    Begin main program
+*** Step 5.)
+    Send input to prompt 1.
+*** Step 6.)
+    Convert string to double.
+*** Step 7.)
+    Copy the current EAX register (which input moves data into)
+    into our allocated number1 memory.
+*** Step 8.)
+    Send input to prompt 2.
+*** Step 9.)
+    Convert string to double.
+*** Step 9.)
+    Convert string to double.
+*** Step 10.)
+    Copy the current EAX regester (which input moves data into)
+    into our allocated number2 memory.
+*** Step 11.)
+    Send input to prompt 3.
+*** Step 12.)
+    Convert string to double.
+*** Step 13.)
+    Copy the current EAX regester (which input moves data into)
+    into our allocated number3 memory.
+*** Step 14.)
+    Move number one into accumulator register.
+*** Step 15.)
+    Perform add onto accumulator from number two.
+*** Step 16.)
+    Perform add onto accumulator from number three.
+*** Step 17.)
+    Cast to ASCII and send to output function.
+*** Step 18.)
+    Send exit code to operating system.
+
+** Test Plan Version 2
+*** Test Case 1
+**** Test Strategy
+     *A.)*
+**** Test Number
+     *1.)*
+**** Description
+     We will input three positive numbers and see if we get
+     proper output.
+**** Input
+     (1, 2, 3)
+**** Output
+     6
+
+*** Test Case 2
+**** Test Strategy
+     *A.)*
+**** Test Number
+     *2.)*
+**** Description
+     We will input three negative numbers and see if we get
+     proper output.
+**** Input
+     (-1, -2, -3)
+**** Output
+     -6
+
+*** Test Case 3
+**** Test Strategy
+     *A.)*
+**** Test Number
+     *2.)*
+**** Description
+     We will insert one large positive number, one large
+     negative number, and one zero number and see if we get
+     proper output.
+**** Input
+     (100, -100, 0)
+**** Output
+     0
+
+** Code
+   See added Visual Studio project.
+
+** Updated Algorithm
+*** Step 1.)
+    Allocate memory for various prompt titles.
+*** Step 2.)
+    Allocate memory for various numeric inputs.
+*** Step 3.)
+    Allocate memory for input and output strings.
+*** Step 4.)
+    Begin main program
+*** Step 5.)
+    Send input to prompt 1.
+*** Step 6.)
+    Convert string to double.
+*** Step 7.)
+    Copy the current EAX register (which input moves data into)
+    into our allocated number1 memory.
+*** Step 8.)
+    Send input to prompt 2.
+*** Step 9.)
+    Convert string to double.
+*** Step 9.)
+    Convert string to double.
+*** Step 10.)
+    Copy the current EAX regester (which input moves data into)
+    into our allocated number2 memory.
+*** Step 11.)
+    Send input to prompt 3.
+*** Step 12.)
+    Convert string to double.
+*** Step 13.)
+    Copy the current EAX regester (which input moves data into)
+    into our allocated number3 memory.
+*** Step 14.)
+    Move number one into accumulator register.
+*** Step 15.)
+    Perform add onto accumulator from number two.
+*** Step 16.)
+    Perform add onto accumulator from number three.
+*** Step 17.)
+    Cast to ASCII and send to output function.
+*** Step 18.)
+    Send exit code to operating system.
+
+** Test Plan Version 3
+*** Test Case 1
+**** Test Strategy
+     *A.)*
+**** Test Number
+     *1.)*
+**** Description
+     We will input three positive numbers and see if we get
+     proper output.
+**** Input
+     (1, 2, 3)
+**** Output
+     6
+**** Actual Output
+     6
+**** Pass/Fail
+     Pass
+
+*** Test Case 2
+**** Test Strategy
+     *A.)*
+**** Test Number
+     *2.)*
+**** Description
+     We will input three negative numbers and see if we get
+     proper output.
+**** Input
+     (-1, -2, -3)
+**** Output
+     -6
+**** Actual Output
+     -6
+**** Pass/Fail
+     Pass
+
+*** Test Case 3
+**** Test Strategy
+     *A.)*
+**** Test Number
+     *2.)*
+**** Description
+     We will insert one large positive number, one large
+     negative number, and one zero number and see if we get
+     proper output.
+**** Input
+     (100, -100, 0)
+**** Output
+     0
+**** Actual Output
+     0
+**** Pass/Fail
+     Pass
+
+** Screenshots
+   See zipped folder in submitted document.
+
+** Error Log
+   None
+
+** Status
+   Fully functioning.

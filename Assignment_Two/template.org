@@ -1,0 +1,76 @@
+Fahrenheit To Celcius Converter
+
+* Problem Statement
+  Make a program that will prompt the user for a temperature in fahrenheit and convert 
+  it to celcius. Make sure said program uses a GUI.
+  
+* Requirements
+** Assumptions
+*** The user will be prompted with a window to enter some decimal number representinga temperature in fahrenheit.
+*** The program will sanitize data and convert seamlessly between string and numeric representation of data.
+*** The program will then display the resulting celcius number.
+
+** Specification
+*** The prorams prompt will take an arbitrary length string parameter.
+*** Said string parameter will then be converted to a 32 bit float in memory.
+*** Non-numerics will display an error (automatically implemented by framework).
+*** When result is given, the user will be able to press "OK" to exit the program.
+    
+* Decomposition Diagram
+** Input
+*** User inputs representable numeric.
+** Process
+*** Convert string based numeric to float
+*** Place into conversion function
+*** Requires stored variables in executable
+*** Convert back to string.
+** Output
+*** Print out final conversion.
+
+* Test Strategy
+  Valid Data / Invalid Data scheme.
+
+* Test Plan: Version 1
+| Test Strategy | Test Number | Description                         |
+|---------------+-------------+-------------------------------------|
+| Valid Data    |           1 | User enters negative integer        |
+| Valid Data    |           2 | User enters positive integer        |
+| Valid Data    |           3 | User enters positive decimal        |
+| Valid Data    |           4 | User enters negative decimal        |
+| Invalid Data  |           5 | User enters generic string  decimal |
+
+* Initial Algorithm
+
+* Test Plan: Version 2
+| Test Strategy | Test Number | Description                         | Input |     Output |
+|---------------+-------------+-------------------------------------+-------+------------|
+| Valid Data    |           1 | User enters negative integer        |    -2 |        -19 |
+| Valid Data    |           2 | User enters positive integer        |     2 |        -16 |
+| Valid Data    |           3 | User enters positive decimal        |   2.5 |        -16 |
+| Valid Data    |           4 | User enters negative decimal        |  -2.5 |        -19 |
+| Invalid Data  |           5 | User enters generic string  decimal | Hello | Show Error |
+
+* Code
+  See Submission
+  
+
+* Updated Algorithm
+  
+
+* Test Plan: Version 3
+| Test Strategy | Test Number | Description                         | Input |     Output |      Actual | Passing |
+|---------------+-------------+-------------------------------------+-------+------------+-------------+---------|
+| Valid Data    |           1 | User enters negative integer        |    -2 |        -19 |         -19 | Pass    |
+| Valid Data    |           2 | User enters positive integer        |     2 |        -16 |         -16 | Pass    |
+| Valid Data    |           3 | User enters positive decimal        |   2.5 |        -16 |         -16 | Pass    |
+| Valid Data    |           4 | User enters negative decimal        |  -2.5 |        -19 |         -19 | Pass    |
+| Invalid Data  |           5 | User enters generic string  decimal | Hello | Show Error | Shows Error | Pass    |
+
+* Screenshots
+  See "Screenshots" in submission.
+
+* Error Log
+  None to be found in the scope of this assignment.
+
+* Status
+  The program works 100% with assumptions in place.
