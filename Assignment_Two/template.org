@@ -60,13 +60,13 @@ Fahrenheit To Celcius Converter
   + Display data to user.
 
 * Test Plan: Version 2
-| Test Strategy | Test Number | Description                         | Input |     Output |
-|---------------+-------------+-------------------------------------+-------+------------|
-| Valid Data    |           1 | User enters negative integer        |    -2 |        -19 |
-| Valid Data    |           2 | User enters positive integer        |     2 |        -16 |
-| Valid Data    |           3 | User enters positive decimal        |   2.5 |        -16 |
-| Valid Data    |           4 | User enters negative decimal        |  -2.5 |        -19 |
-| Invalid Data  |           5 | User enters generic string  decimal | Hello | Show Error |
+| Test Strategy | Test Number | Description                         | Input |     Output   |
+|---------------+-------------+-------------------------------------+-------+--------------|
+| Valid Data    |           1 | User enters negative integer        |    -2 |        -18   |
+| Valid Data    |           2 | User enters positive integer        |     2 |        -16   |
+| Valid Data    |           3 | User enters positive decimal        |   2.5 |        -16   |
+| Valid Data    |           4 | User enters negative decimal        |  -2.5 |        -18   |
+| Invalid Data  |           5 | User enters generic string  decimal | Hello | Show Previous|
 
 * Code
   #+begin_src asm
@@ -145,11 +145,11 @@ Fahrenheit To Celcius Converter
 * Test Plan: Version 3
 | Test Strategy | Test Number | Description                         | Input |     Output |      Actual | Passing |
 |---------------+-------------+-------------------------------------+-------+------------+-------------+---------|
-| Valid Data    |           1 | User enters negative integer        |    -2 |        -19 |         -19 | Pass    |
+| Valid Data    |           1 | User enters negative integer        |    -2 |        -18 |         -18 | Pass    |
 | Valid Data    |           2 | User enters positive integer        |     2 |        -16 |         -16 | Pass    |
 | Valid Data    |           3 | User enters positive decimal        |   2.5 |        -16 |         -16 | Pass    |
-| Valid Data    |           4 | User enters negative decimal        |  -2.5 |        -19 |         -19 | Pass    |
-| Invalid Data  |           5 | User enters generic string  decimal | Hello | Show Error | Shows Error | Pass    |
+| Valid Data    |           4 | User enters negative decimal        |  -2.5 |        -18 |         -18 | Pass    |
+| Invalid Data  |           5 | User enters generic string  decimal | Hello | Show Last  | Shows Last  | Pass    |
 
 * Screenshots
   See "Screenshots" in submission.
