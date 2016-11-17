@@ -45,11 +45,12 @@ Searching Program
 | Input    | Valid Data    |           3 | Insert negative number    |
 | Input    | Invalid Data  |           4 | Insert string             |
 | Input    | Invalid Data  |           5 | Insert None               |
-| Search   | Valid Data    |           6 | Insert number in list     |
-| Search   | Valid Data    |           7 | Insert number not in list |
-| Search   | Valid Data    |           8 | Insert negative number    |
-| Search   | Invalid Data  |           9 | Insert string             |
-| Search   | Invalid Data  |           10 | Insert None               |
+| Search   | Valid Data    |           6 | Search number in list     |
+| Search   | Valid Data    |           7 | Search number not in list |
+| Search   | Valid Data    |           8 | Search negative number    |
+| Search   | Invalid Data  |           9 | Search string             |
+| Search   | Invalid Data  |          10 | Search None               |
+| Input    | Invalid Data  |          11 | Insert overflow           |
 
 
 * Initial Algorithm
@@ -78,17 +79,17 @@ Searching Program
   #+END_SRC
 
 * Test Plan: Version 2
-| Test Set | Test Strategy | Test Number | Description               |
-|----------+---------------+-------------+---------------------------|
-| Input    | Valid Data    |           1 | Insert positive number    |
-| Input    | Valid Data    |           2 | Insert zero number        |
-| Input    | Valid Data    |           3 | Insert negative number    |
-| Input    | Invalid Data  |           4 | Insert string             |
-| Input    | Invalid Data  |           5 | Insert None               |
-| Search   | Valid Data    |           6 | Insert number in list     |
-| Search   | Valid Data    |           7 | Insert number not in list |
-| Search   | Valid Data    |           8 | Insert negative number    |
-| Search   | Invalid Data  |           9 | Insert string             |
-| Search   | Invalid Data  |           10 | Insert None               |
-| Input    | Invalid Data  |           11 | Insert overflow           |
-| Input    | Valid Data    |           12 | Insert less than ten      |
+| Test Set | Test Strategy | Test Number | Description               | Input          | Output                 |
+|----------+---------------+-------------+---------------------------+----------------+------------------------|
+| Input    | Valid Data    |           1 | Insert positive number    | 1              | (Continue)             |
+| Input    | Valid Data    |           2 | Insert zero number        | 0              | (Continue)             |
+| Input    | Valid Data    |           3 | Insert negative number    | -1             | Show dialogue          |
+| Input    | Invalid Data  |           4 | Insert string             | Hi             | Show invalid dialogue  |
+| Input    | Invalid Data  |           5 | Insert None               | ""             | Show invalid dialogue  |
+| Search   | Valid Data    |           6 | Search number in list     | 2              | Show positive dialogue |
+| Search   | Valid Data    |           7 | Search number not in list | 1              | Show failure dialogue  |
+| Search   | Valid Data    |           8 | Search negative number    | -1             | Show invalid dialogue  |
+| Search   | Invalid Data  |           9 | Search string             | Hi             | Show invalid dialogue  |
+| Search   | Invalid Data  |          10 | Search None               | ""             | Show invalid dialogue  |
+| Input    | Invalid Data  |          11 | Insert overflow           | 1 <> ... <> 11 | Disallow               |
+| Input    | Valid Data    |          12 | Insert less than ten      | 1 <> ... <> 9  | Allow                  |
