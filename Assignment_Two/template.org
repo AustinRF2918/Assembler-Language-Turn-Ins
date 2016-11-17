@@ -40,29 +40,116 @@ Fahrenheit To Celcius Converter
 | Invalid Data  |           5 | User enters generic string  decimal |
 
 * Initial Algorithm
+  + Allocate DWORD for final result, 4 REAL4s for manipulation of floats
+  + Allocate strings for message display to screen.
+  + Call framework input with above strings.
+  + Sub filled EAX by 32, move into user value.
+  + Store value in memory.
+
+  + Take lhs, load it in as numerator for floating point division.
+  + Take rhs, use fidiv to divide floating point numerics.
+  + Store the result into a value.
+
+  + Take resultant values between the two blocks above
+  + Perform multiplication.
+  + Store the value.
+
+  + Round down value using fistpp
+  + Convert resultant to string with dtoa.
+
+  + Display data to user.
 
 * Test Plan: Version 2
-| Test Strategy | Test Number | Description                         | Input |     Output |
-|---------------+-------------+-------------------------------------+-------+------------|
-| Valid Data    |           1 | User enters negative integer        |    -2 |        -19 |
-| Valid Data    |           2 | User enters positive integer        |     2 |        -16 |
-| Valid Data    |           3 | User enters positive decimal        |   2.5 |        -16 |
-| Valid Data    |           4 | User enters negative decimal        |  -2.5 |        -19 |
-| Invalid Data  |           5 | User enters generic string  decimal | Hello | Show Error |
+| Test Strategy | Test Number | Description                         | Input |     Output   |
+|---------------+-------------+-------------------------------------+-------+--------------|
+| Valid Data    |           1 | User enters negative integer        |    -2 |        -18   |
+| Valid Data    |           2 | User enters positive integer        |     2 |        -16   |
+| Valid Data    |           3 | User enters positive decimal        |   2.5 |        -16   |
+| Valid Data    |           4 | User enters negative decimal        |  -2.5 |        -18   |
+| Invalid Data  |           5 | User enters generic string  decimal | Hello | Show Previous|
 
 * Code
-  See Submission
-  
+  #+begin_src asm
+    .586
+    .MODEL FLAT
+
+    INCLUDE io-asm.h            ; header file for input/output
+
+    .STACK 4096
+
+    .DATA
+    number1 DWORD   ?
+    rounded DWORD   ?
+    lhs			SDWORD	5
+    rhs			SDWORD	9
+    user_value	SDWORD	?
+    f_const REAL4	?
+    l_const	REAL4	?
+    r_const	REAL4	?
+    u_const REAL4	?
+    prompt1 BYTE    "Enter the the temperature in fahrenheit.", 0
+    string  BYTE    40 DUP (?)
+    jum		BYTE	40 DUP (?)
+    resultLbl BYTE  "The value in celcius is..", 0
+    sum     BYTE    11 DUP (?), 0
+
+    .CODE
+    _MainProc PROC
+            input   prompt1, string, 40      ; read ASCII characters
+            atod    string          ; convert to integer
+		    sub		eax, 32
+		    mov		user_value, eax
+		    fild	user_value
+		    fstp	r_const			; store it.
+               
+		    fild	lhs				; Convert lhs to floating point.
+		    fidiv	rhs				; Divide data in register by RHS (9)
+		    fstp	l_const			; Store it.
+
+		    fld		l_const			;
+		    fmul	r_const			;
+		    fstp	f_const			; Store it.
+
+		    fld		f_const
+		    fisttp	rounded
+		    dtoa    sum, rounded	        ; convert to ASCII characters
+            output  resultLbl, sum          ; output label and sum
+
+            mov     eax, 0  ; exit with return code 0
+            ret
+     _MainProc ENDP
+    END                             ; end of source code
+
+
+  #+end_src
 * Updated Algorithm
+  + Allocate DWORD for final result, 4 REAL4s for manipulation of floats
+  + Allocate strings for message display to screen.
+  + Call framework input with above strings.
+  + Sub filled EAX by 32, move into user value.
+  + Store value in memory.
+
+  + Take lhs, load it in as numerator for floating point division.
+  + Take rhs, use fidiv to divide floating point numerics.
+  + Store the result into a value.
+
+  + Take resultant values between the two blocks above
+  + Perform multiplication.
+  + Store the value.
+
+  + Round down value using fistpp
+  + Convert resultant to string with dtoa.
+
+  + Display data to user.
 
 * Test Plan: Version 3
 | Test Strategy | Test Number | Description                         | Input |     Output |      Actual | Passing |
 |---------------+-------------+-------------------------------------+-------+------------+-------------+---------|
-| Valid Data    |           1 | User enters negative integer        |    -2 |        -19 |         -19 | Pass    |
+| Valid Data    |           1 | User enters negative integer        |    -2 |        -18 |         -18 | Pass    |
 | Valid Data    |           2 | User enters positive integer        |     2 |        -16 |         -16 | Pass    |
 | Valid Data    |           3 | User enters positive decimal        |   2.5 |        -16 |         -16 | Pass    |
-| Valid Data    |           4 | User enters negative decimal        |  -2.5 |        -19 |         -19 | Pass    |
-| Invalid Data  |           5 | User enters generic string  decimal | Hello | Show Error | Shows Error | Pass    |
+| Valid Data    |           4 | User enters negative decimal        |  -2.5 |        -18 |         -18 | Pass    |
+| Invalid Data  |           5 | User enters generic string  decimal | Hello | Show Last  | Shows Last  | Pass    |
 
 * Screenshots
   See "Screenshots" in submission.
