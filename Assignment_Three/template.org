@@ -1,0 +1,94 @@
+Searching Program
+
+* Problem Statement
+  Make a program that sequentially searches for a given DWORD in a contiguous 
+  DWORD array.
+
+* Requirements
+** Assumptions
+   + User will be prompted for input to array.
+   + Contiguous location will contain 10 elements.
+   + Only allow non-negative values.
+
+** Specification
+   + The programs prompt will take a string parameter and attempt to convert to numeric.
+   + Once array is full, no more values may be entered.
+   + Display message if no elements in array.
+   + Framework as previously used will be used.
+    
+* Decomposition Diagram
+** Input
+*** Creation
+    + Multiple values from user
+*** Searching
+    + Searched input from user
+** Process
+*** Creation
+    + Convert string based numeric to float (or integer)
+    + Push into contiguous location
+*** Searching
+    + Convert string based numeric to float (or integer)
+    + Search algorithm
+** Output
+*** Searching
+    + Display whether or not the item is in the list.
+
+* Test Strategy
+  Divide into input and search schemes.
+  Valid Data / Invalid Data scheme.
+
+* Test Plan: Version 1
+| Test Set | Test Strategy | Test Number | Description               |
+|----------+---------------+-------------+---------------------------|
+| Input    | Valid Data    |           1 | Insert positive number    |
+| Input    | Valid Data    |           2 | Insert zero number        |
+| Input    | Valid Data    |           3 | Insert negative number    |
+| Input    | Invalid Data  |           4 | Insert string             |
+| Input    | Invalid Data  |           5 | Insert None               |
+| Search   | Valid Data    |           6 | Insert number in list     |
+| Search   | Valid Data    |           7 | Insert number not in list |
+| Search   | Valid Data    |           8 | Insert negative number    |
+| Search   | Invalid Data  |           9 | Insert string             |
+| Search   | Invalid Data  |           10 | Insert None               |
+
+
+* Initial Algorithm
+  #+BEGIN_SRC python
+    elements = zero
+    addr = address(array)
+    number = 0
+
+    while number > 0:
+      if len(addr) == 10:
+        break
+      number = int(input("Enter your number."))
+      elements = elements + 1
+      addr[element] = number
+
+    if len(addr) != 0:
+      search = 0
+      while search > 0:
+        search = int(input("Enter value to be searched for."))
+        for num in range(0, elements):
+          if addr[num] == search:
+	    return true
+	    # Do a general print with the framework here.
+        # Do a general print with the framework here.
+        return false
+  #+END_SRC
+
+* Test Plan: Version 2
+| Test Set | Test Strategy | Test Number | Description               |
+|----------+---------------+-------------+---------------------------|
+| Input    | Valid Data    |           1 | Insert positive number    |
+| Input    | Valid Data    |           2 | Insert zero number        |
+| Input    | Valid Data    |           3 | Insert negative number    |
+| Input    | Invalid Data  |           4 | Insert string             |
+| Input    | Invalid Data  |           5 | Insert None               |
+| Search   | Valid Data    |           6 | Insert number in list     |
+| Search   | Valid Data    |           7 | Insert number not in list |
+| Search   | Valid Data    |           8 | Insert negative number    |
+| Search   | Invalid Data  |           9 | Insert string             |
+| Search   | Invalid Data  |           10 | Insert None               |
+| Input    | Invalid Data  |           11 | Insert overflow           |
+| Input    | Valid Data    |           12 | Insert less than ten      |
